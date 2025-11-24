@@ -130,7 +130,7 @@ async function displayalbums() {
         e.addEventListener("click", async item=>{
             console.log(item, item.currentTarget, item.currentTarget.dataset)
             await getSongs(`songs/${item.currentTarget.dataset.folder}`);
-            
+            playMusic(songs[0])
         })
     })
 }

@@ -43,14 +43,14 @@ async function getSongs(folder) {
     songList.innerHTML = "";
     for (const song of songs) {
         songList.innerHTML = songList.innerHTML + `<li> 
-                                <img class="invert" src="/Spotify_clone/img/music.svg" alt="">
+                                <img class="invert" src="/img/music.svg" alt="">
                                 <div class="info">
                                     <div>${song.replaceAll("%20", " ")}</div>
                                     <div>Yapper Master</div>
                                 </div>
                                 <div class="playNow">
                                     <span>Play Now</span>
-                                    <img class="invert" src="/Spotify_clone/img/play.svg" alt="">
+                                    <img class="invert" src="/img/play.svg" alt="">
                                 </div>
                             </li>`;
     }
@@ -67,10 +67,10 @@ async function getSongs(folder) {
 
 const playMusic = (track, pause = false) => {
     //let audio = new Audio("/songs/" + track);
-    currentSong.src = `/Spotify_clone/${currfolder}/` + track;
+    currentSong.src = `${currfolder}/` + track;
     if(!pause){
         currentSong.play();
-        play.src = "/Spotify_clone/img/pause.svg"
+        play.src = "/img/pause.svg"
     }
 
     document.querySelector(".songInfo").innerHTML = decodeURI(track);
@@ -105,7 +105,7 @@ async function displayalbums() {
             let folder = (parts[1]);   // "Bangla", "Phonk"
             //console.log(folder)
             //get metadata of folder
-            let a = await fetch(`http://127.0.0.1:5500/Spotify_clone/songs/${folder}/info.json`);
+            let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
             let response = await a.json();
             //console.log(response);
             cardContainer.innerHTML += `<div data-folder="${folder}" class="card">
@@ -116,7 +116,7 @@ async function displayalbums() {
                             </svg>
 
                         </div>
-                        <img src="/Spotify_clone/songs/${folder}/cover.webp" alt="">
+                        <img src="/songs/${folder}/cover.webp" alt="">
                         <h2>${response.title}</h2>
                         <p>${response.Description}</p>
                     </div>`
@@ -130,7 +130,7 @@ async function displayalbums() {
         e.addEventListener("click", async item=>{
             console.log(item, item.currentTarget, item.currentTarget.dataset)
             await getSongs(`songs/${item.currentTarget.dataset.folder}`);
-            playMusic(songs[0])
+            
         })
     })
 }
@@ -150,11 +150,11 @@ async function main() {
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play()
-            play.src = "/Spotify_clone/img/pause.svg"
+            play.src = "/img/pause.svg"
         }
         else{
             currentSong.pause()
-            play.src = "/Spotify_clone/img/play.svg"
+            play.src = "/img/play.svg"
         }
     })
 

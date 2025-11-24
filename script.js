@@ -43,14 +43,14 @@ async function getSongs(folder) {
     songList.innerHTML = "";
     for (const song of songs) {
         songList.innerHTML = songList.innerHTML + `<li> 
-                                <img class="invert" src="/img/music.svg" alt="">
+                                <img class="invert" src="img/music.svg" alt="">
                                 <div class="info">
                                     <div>${song.replaceAll("%20", " ")}</div>
                                     <div>Yapper Master</div>
                                 </div>
                                 <div class="playNow">
                                     <span>Play Now</span>
-                                    <img class="invert" src="/img/play.svg" alt="">
+                                    <img class="invert" src="img/play.svg" alt="">
                                 </div>
                             </li>`;
     }
@@ -70,7 +70,7 @@ const playMusic = (track, pause = false) => {
     currentSong.src = `${currfolder}/` + track;
     if(!pause){
         currentSong.play();
-        play.src = "/img/pause.svg"
+        play.src = "img/pause.svg"
     }
 
     document.querySelector(".songInfo").innerHTML = decodeURI(track);

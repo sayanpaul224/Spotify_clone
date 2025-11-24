@@ -150,11 +150,11 @@ async function main() {
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play()
-            play.src = "/img/pause.svg"
+            play.src = "img/pause.svg"
         }
         else{
             currentSong.pause()
-            play.src = "/img/play.svg"
+            play.src = "img/play.svg"
         }
     })
 

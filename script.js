@@ -105,7 +105,7 @@ async function displayalbums() {
             let folder = (parts[1]);   // "Bangla", "Phonk"
             //console.log(folder)
             //get metadata of folder
-            let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+            let a = await fetch(`http://127.0.0.1:5500/Spotify_clone/songs/${folder}/info.json`);
             let response = await a.json();
             //console.log(response);
             cardContainer.innerHTML += `<div data-folder="${folder}" class="card">
